@@ -1,5 +1,17 @@
 import React from 'react';
 
+/**
+ * ContactItemBody component is a simple React component
+ * for the body of a contact item.
+ * @component
+ * @example
+ * // Example usage of ContactItemBody
+ * <ContactItemBody name="Dimas Saputra" tag="dimasmds" />
+ * @param {Object} props The properties of the component
+ * @param {string} props.name The name of contact
+ * @param {string} props.tag The tag for the contact's username
+ * @return {JSX.Element} React component
+ */
 function ContactItemBody({name, tag}) {
   return (
     <div className='contact-item__body'>
@@ -8,5 +20,9 @@ function ContactItemBody({name, tag}) {
     </div>
   );
 }
+ContactItemBody.propTypes = {
+  name: PropTypes.string.isRequired,
+  tag: PropTypes.string.isRequired,
+};
 
 export default ContactItemBody;
