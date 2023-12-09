@@ -4,19 +4,21 @@ import ContactItem from './ContactItem';
 
 /**
  * @component
- * @param {Array} contacts
  * @param {Object} props
- * @param {imageUrl} props.imageUrl
- * @param {name} props.name
- * @param {tag} props.tag
+ * @param {Array} props.contacts
+ * @param {func} props.onDelet
  * @return {JSX.Element}
  */
-function ContactList({contacts}) {
+function ContactList({contacts, onDelete}) {
   return (
     <div className="contact-list">
       {
         contacts.map((contact) => (
-          <ContactItem {...contact} key={contact.id} />
+          <ContactItem
+            key={contact.id}
+            id={contact.id}
+            onDelete={onDelete}
+            {...contact} />
         ))
       }
     </div>
@@ -32,6 +34,7 @@ ContactList.propTypes = {
           },
       ),
   ).isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default ContactList;
